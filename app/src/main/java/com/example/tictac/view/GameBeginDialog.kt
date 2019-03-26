@@ -57,26 +57,26 @@ class GameBeginDialog: DialogFragment() {
 
     private fun onDoneClicked() {
         if (isAValidName(player1Layout, player1) and isAValidName(player2Layout, player2)) {
-//            activity.onPlayersSet(player1, player2)
+            activity.onPlayersSet(player1, player2)
             dismiss()
         }
     }
 
 
     private fun isAValidName(layout: TextInputLayout, name: String): Boolean {
-//        if (TextUtils.isEmpty(name)) {
-//            layout.isErrorEnabled = true
-//            layout.error = getString(R.string.game_dialog_empty_name)
-//            return false
-//        }
-//
-//        if (player1 != null && player2 != null && player1.equals(player2, ignoreCase = true)) {
-//            layout.isErrorEnabled = true
-//            layout.error = getString(R.string.game_dialog_same_names)
-//            return false
-//        }
-//        val equals = player1.equals(player2, ignoreCase = true)
-//        layout.isErrorEnabled = false
+        if (TextUtils.isEmpty(name)) {
+            layout.isErrorEnabled = true
+            layout.error = getString(R.string.game_dialog_empty_name)
+            return false
+        }
+
+        if (player1 != null && player2 != null && player1.equals(player2, ignoreCase = true)) {
+            layout.isErrorEnabled = true
+            layout.error = getString(R.string.game_dialog_same_names)
+            return false
+        }
+        val equals = player1.equals(player2, ignoreCase = true)
+        layout.isErrorEnabled = false
         layout.error = ""
         return true
     }
